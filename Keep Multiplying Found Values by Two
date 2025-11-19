@@ -1,0 +1,13 @@
+class Solution {
+    public int findFinalValue(int[] nums, int original) {
+        int bits = 0;
+        for (int num : nums) {
+            if (num % original != 0) continue;
+            int n = num / original;
+            if ((n & (n - 1)) == 0)
+                bits |= n;
+        }
+        bits++;
+        return original * (bits & -bits);
+    }
+}
