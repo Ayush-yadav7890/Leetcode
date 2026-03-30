@@ -1,0 +1,19 @@
+class Solution {
+    public List<String> letterCasePermutation(String s) {
+        List<String> res = new ArrayList<>();
+        res.add("");
+        for (char c : s.toCharArray()) {
+            List<String> newRes = new ArrayList<>();      
+            for (String str : res) {
+                if (Character.isLetter(c)) {
+                    newRes.add(str + Character.toLowerCase(c));
+                    newRes.add(str + Character.toUpperCase(c));
+                } else {
+                    newRes.add(str + c);
+                }
+            }            
+            res = newRes;
+        }      
+        return res;
+    }
+}
